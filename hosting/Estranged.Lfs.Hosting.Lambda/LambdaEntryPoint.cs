@@ -4,13 +4,11 @@ using System.IO;
 
 namespace Estranged.Lfs.Hosting.Lambda
 {
-    public class LambdaEntryPoint : APIGatewayProxyFunction
+    public class LambdaEntryPoint : APIGatewayHttpApiV2ProxyFunction
     {
         protected override void Init(IWebHostBuilder builder)
         {
-            builder.UseContentRoot(Directory.GetCurrentDirectory())
-                .UseStartup<Startup>()
-                .UseLambdaServer();
+            builder.UseStartup<Startup>();
         }
     }
 }
